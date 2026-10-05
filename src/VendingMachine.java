@@ -142,7 +142,8 @@ public class VendingMachine {
 		int slotIndex = getSlotIndex(code);
 		VendingMachineItem item = itemArray[slotIndex];
 		itemArray[slotIndex] = null;
-		if (item == null) {
+		//INJECTED FAULT FOR TEST VALIDATION
+		if (item != null) {
 			throw new VendingMachineException(SLOT_MESSAGE + code + IS_EMPTY_MESSAGE);
 		}
 		return item;
